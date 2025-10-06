@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amul User Profiles</title>
+    <link rel="stylesheet" href="profile.css" />
+    ">
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="header-logo">
+          <img src="logo.png" alt="Amul Logo" class="logo" />
+          <h1>Amul User Profiles</h1>
+        </div>
+        <h2>Add a New Profile</h2>
+        <form id="profileForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required />
+          </div>
+          <button type="submit">Add Profile</button>
+          <button type="button" id="clearDataButton" class="clear-button">
+            Clear All Profiles
+          </button>
+        </form>
+      </div>
+
+      <div class="profile-container">
+        <h2>Existing Profiles</h2>
+        <div id="profileList"></div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript starts here
+
+      // Class to define the structure of a user profile
+      class UserProfile {
+        constructor(id, name, email, phone, city) {
+          this.id = id;
+          this.name = name;
+          this.email = email;
+          this.phone = phone;
+          this.city = city;
+        }
+      }
+
+      // A function to get profiles from localStorage or return an empty array
+      const getProfiles = () => {
+        const profilesString = localStorage.getItem("amulUserProfiles");
+        if (profilesString) {
+          return JSON.parse(profilesString);
+        }
+        return [];
+      };
+
+      // A function to save the profiles array to localStorage
+      const saveProfiles = (profiles) => {
+        localStorage.setItem("amulUserProfiles", JSON.stringify(profiles));
+      };
+
+      // A function to render the profiles to the DOM
+      const renderProfiles = () => {
+        const profileListDiv = document.getElementById("profileList");
+        const profiles = getProfiles();
+
+        profileListDiv.innerHTML = "";
+
+        if (profiles.length === 0) {
+          profileListDiv.innerHTML =
+            '<p style="color: #c9d1d9; font-style: italic;">No user profiles found. Add one using the form.</p>';
+          return;
+        }
+
+        profiles.forEach((profile) => {
+          const profileCard = document.createElement("div");
+          profileCard.className = "profile-card";
+          profileCard.innerHTML = `
+                <p><strong>Name:</strong> ${profile.name}</p>
+                <p><strong>Email:</strong> ${profile.email}</p>
+                <p><strong>Phone:</strong> ${profile.phone}</p>
+                <p><strong>City:</strong> ${profile.city}</p>
+            `;
+          profileListDiv.appendChild(profileCard);
+        });
+      };
+
+      // Handle form submission
+      document
+        .getElementById("profileForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          const profiles = getProfiles();
+          const newId =
+            profiles.length > 0
+              ? Math.max(...profiles.map((p) => p.id)) + 1
+              : 1;
+          const newProfile = new UserProfile(
+            newId,
+            document.getElementById("name").value,
+            document.getElementById("email").value,
+            document.getElementById("phone").value,
+            document.getElementById("city").value
+          );
+          profiles.push(newProfile);
+          saveProfiles(profiles);
+          renderProfiles();
+          event.target.reset();
+        });
+
+      // Handle clearing data
+      document
+        .getElementById("clearDataButton")
+        .addEventListener("click", () => {
+          // This is the key line: it removes the data from localStorage
+          localStorage.removeItem("amulUserProfiles");
+          // Re-render the profiles to show an empty list
+          renderProfiles();
+        });
+
+      // Initial render of profiles when the page loads
+      document.addEventListener("DOMContentLoaded", renderProfiles);
+    </script>
+  </body>
+</html>

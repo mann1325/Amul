@@ -1,0 +1,92 @@
+body{
+    background-color: #226f8d;
+}
+
+#main{
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:50px;
+  
+   
+
+}
+
+
+#form{
+    border: white 1px solid;
+    border-radius: 5%;
+    background-image: url(v880-kul-11.jpg);
+  
+        background-size: cover;
+    height: 420px;
+    width: 440px;
+    margin:10px;
+    padding: 10px;
+    
+}
+
+.logo {
+    display: block;
+    margin-bottom: 20px;
+    width: 135px;
+    height: auto;
+    padding-left:160px;
+}
+
+#Email
+{
+    border-radius: 10px;
+
+    border:none;
+}
+.single-input input {
+    padding-left: 10px;   
+    border: 0px solid #c1c1c1;
+    width: 95%;
+    outline: none;
+    height: 45px;
+    font-size: 14px;
+    border-radius: 18px;
+    margin: 8px;
+    box-shadow: 1px 1px 6px #090c0d6c;
+}
+.single-input i {
+    
+    color: #ee161f;
+}
+button{
+    display: inline-block;
+    position: relative;
+    width: 240px;
+    background-color: #ee161f;
+    height: 45px;
+    border-radius: 27px;
+    color: #4f4e4b;
+    font: 700 14px / 60px "Droid Sans", sans-serif;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 46px;
+    color: #fff !important;
+    border: none;
+    cursor: pointer;
+   
+}
+
+#login{
+    display: flex;
+    padding-left: 20%;
+}
+.registration{
+    display: flex;
+   padding-left: 34%;
+   color:black;
+   
+}
+.error{
+    color:red;
+}

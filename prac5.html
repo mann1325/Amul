@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events, Students & Analysis</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f0f2f5;
+      }
+      .section {
+        margin-bottom: 30px;
+      }
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .title {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #1d2129;
+      }
+      ul {
+        margin-top: 5px;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <h2>Event List</h2>
+      <div id="eventList"></div>
+    </div>
+
+    <hr />
+
+    <div class="section">
+      <h2>Student Profiles</h2>
+      <div id="studentList"></div>
+    </div>
+
+    <hr />
+
+    <div class="section">
+      <h2>Event Enrollment Analysis 📊</h2>
+      <div id="analysisList"></div>
+    </div>
+
+    <script>
+      const eventsJSON = `
+      [
+        {"id": 1, "name": "Hackathon", "date": "2025-08-05"},
+        {"id": 2, "name": "Blind Coding", "date": "2025-08-10"},
+        {"id": 3, "name": "Tech Quiz", "date": "2025-08-15"}
+      ]`;
+
+      const studentsJSON = `
+      [
+        {"name": "Riya Shah", "roll": "CSE101", "enrolledEvents": [1, 3]},
+        {"name": "Aman Patel", "roll": "CSE102", "enrolledEvents": [2]},
+        {"name": "Neha Verma", "roll": "CSE103", "enrolledEvents": [1, 2, 3]}
+      ]`;
+
+      const events = JSON.parse(eventsJSON);
+      const students = JSON.parse(studentsJSON);
+
+      const eventList = document.getElementById("eventList");
+      events.forEach((event) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `<div class="title">${event.name}</div>
+                         <div>Date: ${event.date}</div>`;
+        eventList.appendChild(div);
+      });
+
+      const studentList = document.getElementById("studentList");
+      students.forEach((student) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        const enrolled = student.enrolledEvents.map((eid) => {
+          const event = events.find((ev) => ev.id === eid);
+          return event ? event.name : "Unknown Event";
+        });
+
+        div.innerHTML = `<div class="title">${student.name}</div>
+                         <div>Roll No: ${student.roll}</div>
+                         <div>Enrolled Events: ${enrolled.join(", ")}</div>`;
+        studentList.appendChild(div);
+      });
+
+      const analysisList = document.getElementById("analysisList");
+      const eventAnalysis = new Map();
+
+      events.forEach((event) => {
+        eventAnalysis.set(event.id, {
+          name: event.name,
+          participants: [],
+        });
+      });
+
+      students.forEach((student) => {
+        student.enrolledEvents.forEach((eventId) => {
+          if (eventAnalysis.has(eventId)) {
+            eventAnalysis.get(eventId).participants.push({
+              name: student.name,
+              id: student.roll,
+            });
+          }
+        });
+      });
+
+      eventAnalysis.forEach((details) => {
+        const div = document.createElement("div");
+        div.className = "card";
+
+        const participantList = details.participants
+          .map((p) => `<li>${p.name} (${p.id})</li>`)
+          .join("");
+
+        div.innerHTML = `
+          <div class="title">${details.name}</div>
+          <div><strong>Total Students:</strong> ${
+            details.participants.length
+          }</div>
+          <div><strong>Participants:</strong></div>
+          <ul>
+            ${participantList || "<li>No students enrolled.</li>"}
+          </ul>
+        `;
+        analysisList.appendChild(div);
+      });
+    </script>
+  </body>
+</html>

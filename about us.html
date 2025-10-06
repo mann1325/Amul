@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us</title>
+    <link rel="stylesheet" href="about us.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      #main {
+        background: linear-gradient(
+          180deg,
+          rgba(144, 213, 254, 1) 10px,
+          rgba(255, 255, 255, 1) 300px
+        );
+      }
+
+      #footer {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div id="main">
+      
+        <a href="index.php"> <img src="home.png" width="50" /></a>
+     
+      <h1>About us- The Amul Model</h1>
+      <div id="content">
+    
+      <div class="left-box">
+      <h2>About Amul Dairy</h2>
+      <hr/>
+      <ul>
+      <p><li>
+        Amul Dairy is a cooperative dairy company based in India, known for its
+        high-quality dairy products including milk, butter, cheese, and ice
+        cream. Established in 1946, it has become one of the largest dairy
+        brands in India.
+      </li></p>
+      <p><li>
+        Amul is famous for its cooperative model, which empowers farmers by
+        providing them with fair prices for their milk and dairy products. The
+        brand is also recognized for its innovative marketing campaigns and
+        iconic
+      </p>
+      <p>
+        representatives managed the village societies and the district union,
+        The seeds of this unusual saga were sown in Anand, a small town in the
+        state of Gujarat in western India. The exploitative trade practices
+        followed by the local trade cartel triggered off the cooperative
+        movement. Angered by unfair and manipulative practices followed by the
+        trade, the farmers of the district approached the great Indian patriot
+        Sardar Vallabhbhai Patel for a solution. He advised them to get rid of
+        middlemen and form their own co-operative, which would have procurement,
+        processing and marketing under their control.
+      </li></p>
+      <p><li>
+        In 1946, the farmers of this area went on a milk strike refusing to be
+        cowed down by the cartel. Under the inspiration of Sardar Patel, and the
+        guidance of leaders like Morarji Desai and Tribhuvandas Patel, they
+        formed their own cooperative in 1946.
+      </li></p>
+      <p><li>
+        This co-operative, the Kaira District Co-operative Milk Producers Union
+        Ltd. began with just two village dairy co-operative societies and 247
+        litres of milk and is today better known as Amul Dairy. Amul grew from
+        strength to strength thanks to the inspired leadership of Tribhuvandas
+        Patel, the founder Chairman and the committed professionalism of Dr
+        Verghese Kurien,who was entrusted the task of running the dairy from
+        1950.
+      </li></p>
+      <p><li>
+        The then Prime Minister of India, Lal Bahadur Shastri decided that the
+        same approach should become the basis of a National Dairy Development
+        policy. He understood that the success of Amul could be attributed to
+        four important factors. The farmers owned the dairy, their elected they
+        employed professionals to operate the dairy and manage its business.
+        Most importantly, the co- operatives were sensitive to the needs of
+        farmers and responsive to their demands.
+      </li></p>
+      <p><li>
+        At his instance in 1965 the National Dairy Development Board was set up
+        with the basic objective of replicating the Amul model. Dr. Kurien was
+        chosen to head the institution as its Chairman and asked to replicate
+        this model throughout the country.
+      </li></p>
+      <h2>The Amul Model</h2>
+      <hr/>
+      <p><li>
+        The Amul Model of dairy development is a three-tiered structure with the
+        dairy cooperative societies at the village level federated under a milk
+        union at the district level and a federation of member unions at the
+        state level.
+      </li></p>
+    </div>
+
+    <div class="right-box">
+       <h3>Quick View</h3>
+    <ul>
+          
+              <li><a href="https://www.amul.com/files/pdf/Branch_Wise-GSTN.pdf">GST Nos</a></li>
+              <li><a href="IMS policy.png">AmulFed Dairy-IMS Policy</a></li>
+             
+              <li><a href="#">Locate Us</a></li>
+              <li><a href="career.html">Career</a></li>
+            </ul>
+    </div>
+    </div>
+
+    <div id="footer"></div>
+    <script>
+      fetch("header.php")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

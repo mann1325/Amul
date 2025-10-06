@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+
+    <link rel="stylesheet" href="login page.css" />
+  </head>
+  <body>
+    <div>
+      <a href="index.php"> <img src="home.png" width="50" /></a>
+    </div>
+
+    <div id="main">
+      <form id="form" action="/server">
+        <header>
+          <img
+            src="logo.png"
+            alt="amul logo"
+            width="135px"
+            class="logo"
+          /><br />
+        </header>
+
+        <div class="single-input">
+          <div class="input-wrapper">
+            <input
+              name="txt_User"
+              type="email"
+              id="txt_User"
+              placeholder="👤Email"
+              autocomplete="off"
+              required
+            />
+            <div class="error" id="emailError"></div>
+          </div>
+          <div class="input-wrapper">
+            <input
+              name="txt_Pass"
+              id="txt_Pass"
+              type="password"
+              placeholder="🔒Password"
+              autocomplete="off"
+              required
+            />
+            <div class="error" id="passwordError"></div>
+          </div>
+        </div>
+
+        <br /><br />
+        <div id="login">
+          <button type="submit">LOGIN</button>
+        </div>
+        <br /><br />
+        <a class="registration" href="registration page.html"
+          >new User Register</a
+        >
+        <br /><br />
+      </form>
+      <script>
+        document
+          .getElementById("form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("passwordError").textContent = "";
+
+            const email = document.getElementById("txt_User").value.trim();
+            const password = document.getElementById("txt_Pass").value;
+
+            let isValid = true;
+
+            const emailRegex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!emailRegex.test(email)) {
+              document.getElementById("emailError").textContent =
+                "Enter a valid email.";
+              isValid = false;
+            }
+
+            if (password.length < 6) {
+              document.getElementById("passwordError").textContent =
+                "Password must be at least 6 characters.";
+              isValid = false;
+            }
+
+            if (isValid) {
+              alert("Login Successful!");
+              document.getElementById("form").reset();
+            }
+          });
+      </script>
+    </div>
+  </body>
+</html>

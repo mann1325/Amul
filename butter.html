@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Milk Boxes</title>
+    <link rel="stylesheet" href="butter.css" />
+  <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+      #main {
+        background: linear-gradient(
+          180deg,
+          rgba(144, 213, 254, 1) 10px,
+          rgba(255, 255, 255, 1) 300px
+        );
+      }
+      #footer {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div id="main">  
+         <a href="index.php"> <img src="home.png" width="50" /></a>
+     
+       <div class="container">
+     
+      <div class="butter-box">
+        <img src="butter 100g.png" alt="butter 100g" />
+        <h4>Amul Salted Butter</h4>
+        Price: ₹ 62.00<br />
+        Quantity: 100 g
+      </div>
+      <div class="butter-box">
+        <img src="butter 500g.png" alt="butter 500g" />
+        <h4>Amul Salted Butter</h4>
+        Price: ₹ 305.00<br />
+        Quantity: 500 g
+      </div>
+      <div class="butter-box">
+        <img src="white butter.png" alt="white butter" />
+        <h4>Amul white Unsalted Butter</h4>
+        Price: ₹ 65.00<br />
+        Quantity: 100 g
+      </div>
+      <div class="butter-box">
+        <img src="white butter 500g.png" alt="white butter 500g" />
+        <h4>Amul white Unsalted Butter</h4>
+        Price: ₹ 310.00<br />
+        Quantity: 500 g
+      </div>
+
+       <div class="butter-box">
+        <img src="garlic & herbs butter.png" alt="garlic & herbs butter" />
+        <h4>Amul Garlic & Herbs Butter</h4>
+        Price: ₹ 70.00<br />
+        Quantity: 100 g
+      </div>
+     
+      
+      </div>
+      </div>
+   
+    </div>
+     <div id="footer"></div>
+    <script>
+      fetch("header.php")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    
+  </body>
+</html>

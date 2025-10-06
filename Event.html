@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      #main {
+        background: linear-gradient(
+          180deg,
+          rgba(144, 213, 254, 1) 10px,
+          rgba(255, 255, 255, 1) 300px
+        );
+      }
+
+      #footer {
+        margin-top: auto;
+      }
+    </style>
+    <link rel="stylesheet" href="Event.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <div id="main">
+      <div id="left-box">
+        <a href="index.php"> <img src="home.png" width="50" /></a>
+        <div class="section">
+          <h2>Event Details🧾</h2>
+          <div id="eventList"></div>
+        </div>
+
+        <div class="section">
+          <h2>Attendee info🧑🏻‍🎓</h2>
+          <div id="attendeeInfo"></div>
+        </div>
+        <hr />
+
+        <div class="section">
+          <h2>Event Enrollment Analysis 📊</h2>
+          <div id="analysisList"></div>
+        </div>
+      </div>
+    </div>
+    <div id="footer"></div>
+    <script>
+      const eventsJSON = `{
+    "events": [
+      {
+        "Srno.": 1,
+        "EventName": "Dr N Ramaswami, Secretary, Department of Animal Husbandry, Dairy Development and Fisheries (ADF), Government of Maharashtra",
+        "date": "24/07/2025" 
+      },
+      {
+        "Srno.": 2,
+        "EventName": "Dr. Dhan Singh Rawat, Hon’ble Minister for Health, Education and Cooperative, Government of Uttarakhand",
+        "date": "10/07/2025"
+      },
+      {
+        "Srno.": 3,
+        "EventName": "4th Foundation Day of the Ministry of Cooperation",
+        "date": "06/07/2025"
+      },
+      {
+        "Srno.": 4,
+        "EventName": "Shri George Kurien, Minister of State for Minority Affairs and Fisheries, Animal Husbandry & Dairying , Government of India",
+        "date": "06/07/2025"
+      },
+      {
+        "Srno.": 5,
+        "EventName": "Shri George Kurien, Minister of State for Minority Affairs and Fisheries, Animal Husbandry & Dairying , Government of India",
+        "date": "05/07/2025"
+      }
+    ]
+  }`;
+
+      const attendeeJSON = `[
+    {
+      "name": "Aelees Bhuva", "email": "aelees07@gmail.com" , "contactNo":"9712740139" , "enrolledEvents": [2]
+    },
+    {"name": "Dhruv Adhiya", "email": "dhruvadhiya230407@gmail.com" , "contactNo":"9428623118" , "enrolledEvents": [1,4]},
+    {"name": "Raj Bhut", "email": "rajbhut4802@gmail.com" , "contactNo":"9512018918" , "enrolledEvents": [5]},
+    {"name": "Yash Boghara", "email": "bogharayash2007@gmail.com" , "contactNo":"9850236459" , "enrolledEvents": [3]},
+    {"name": "Preet Dhoriyani", "email": "preet80000@gmail.com" , "contactNo":"8000098239" , "enrolledEvents": [1,2,5]}
+  ]`;
+
+      // Corrected: Changed 'eventJSON' to 'eventsJSON'
+      const eventsData = JSON.parse(eventsJSON).events;
+      const attendeeData = JSON.parse(attendeeJSON);
+
+      const eventList = document.getElementById("eventList");
+      eventsData.forEach((event) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `<div class="title">${event.EventName}</div>
+                     <div>Date: ${event.date}</div>`;
+        eventList.appendChild(div);
+      });
+
+      const attendeeInfo = document.getElementById("attendeeInfo");
+      attendeeData.forEach((attendee) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        const enrolledEvents = attendee.enrolledEvents.map((eid) => {
+          const event = eventsData.find((ev) => ev["Srno."] === eid);
+          return event ? event.EventName : "Unknown Event";
+        });
+
+        div.innerHTML = `<div class="title">${attendee.name}</div>
+                     <div>Email: ${attendee.email}</div>
+                     <div>Contact No: ${attendee.contactNo}</div>
+                     <div>Enrolled Events: ${enrolledEvents.join(", ")}</div>`;
+        attendeeInfo.appendChild(div);
+      });
+
+      const analysisList = document.getElementById("analysisList");
+      const eventAnalysis = new Map();
+
+      eventsData.forEach((event) => {
+        eventAnalysis.set(event["Srno."], {
+          name: event.EventName,
+          participants: [],
+        });
+      });
+      attendeeData.forEach((attendee) => {
+        attendee.enrolledEvents.forEach((eid) => {
+          const event = eventsData.find((ev) => ev["Srno."] === eid);
+          eventAnalysis.get(eid).participants.push(attendee.name);
+        });
+      });
+      analysisList.innerHTML = "";
+      eventAnalysis.forEach((event, eid) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `<div class="title">${event.name}</div>
+                                 <div>Participants: ${event.participants.join(
+                                   ", "
+                                 )}</div>`;
+        analysisList.appendChild(div);
+      });
+
+      fetch("header.php")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

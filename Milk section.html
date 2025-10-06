@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amul Product Display</title>
+    <link rel="stylesheet" href="Milk section.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      #main {
+        background: linear-gradient(
+          180deg,
+          rgba(144, 213, 254, 1) 10px,
+          rgba(255, 255, 255, 1) 300px
+        );
+      }
+
+      #footer {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div id="main">
+      <a href="index.php"> <img src="home.png" width="50" /></a>
+
+      <div class="container">
+        <div class="product-box">
+          <img src="fresh milk.png" alt="Amul Fresh Pouch Milk" />
+          <div class="product-title">Amul Fresh Pouch Milk</div>
+          <button class="btn">
+            <a href="fresh milk .html">More details</a>
+          </button>
+        </div>
+
+        <div class="product-box">
+          <img src="long life milk.png" alt="Amul Long Life Milk" />
+          <div class="product-title">Amul Long Life Milk</div>
+          <button class="btn">
+            <a href="long life milk.html">More details</a>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="footer"></div>
+    <script>
+      fetch("header.php")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

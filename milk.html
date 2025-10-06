@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milk</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+      #main {
+        background: linear-gradient(
+          180deg,
+          rgba(144, 213, 254, 1) 10px,
+          rgba(255, 255, 255, 1) 300px
+        );
+      }
+      #footer {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div>
+      <a href="index.php"> <img src="home.png" width="50" /></a>
+    </div>
+    <div id="main">
+      <h1>Amul Fresh Pouch Milk</h1>
+      <hr />
+      <table>
+        <tr>
+          <th>
+            <img
+              src="amul shakti.jpeg"
+              alt="amul shakti"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul Shakti</h4>
+            Price: ₹ 31.00<br />
+            Quantity: 500 ml
+          </th>
+          <th>
+            <img
+              src="amul gold.jpeg"
+              alt="amul gold"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul Gold</h4>
+            Price: ₹ 35.00<br />
+            Quantity: 500 ml
+          </th>
+          <th>
+            <img
+              src="amul taaza.png"
+              alt="amul taaza"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul Taaza</h4>
+            Price: ₹ 25.00<br />
+            Quantity: 500 ml
+          </th>
+          <th>
+            <img
+              src="amul cow milk.png"
+              alt="amul cow milk"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>amul cow Milk</h4>
+            Price: ₹ 30.00<br />
+            Quantity: 500 ml
+          </th>
+          <th>
+            <img
+              src="amul buffalo milk.png"
+              alt="amul buffalo milk"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul Buffalo Milk</h4>
+            Price: ₹38.00<br />
+            Quantity: 500 ml
+          </th>
+          <th>
+            <img
+              src="amul shakti 1L.png"
+              alt="amul shakti 1L"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul Shakti 1L</h4>
+            Price: ₹ 62.00<br />
+            Quantity: 1 L
+          </th>
+          <th>
+            &nbsp;
+            <img
+              src="amul gold 1L.png"
+              alt="amul gold 1L"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul Gold 1L</h4>
+            Price: ₹ 70.00<br />
+            Quantity: 1 L
+          </th>
+
+          <th>
+            &nbsp;
+            <img
+              src="amul taaza 1L.png"
+              alt="amul taaza 1L"
+              width="100"
+              height="100"
+            />&nbsp;&nbsp;&nbsp;
+            <h4>Amul Taaza 1L</h4>
+            Price: ₹ 50.00<br />
+            Quantity: 1 L
+          </th>
+          <th>
+            <img
+              src="amul cow milk 1L.png"
+              alt="amul cow milk 1L"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>amul cow Milk</h4>
+            Price: ₹ 60.00<br />
+            Quantity: 1 L
+          </th>
+
+          <th>
+            <img
+              src="amul buffalo milk 1L.png"
+              alt="amul buffalo milk 1L"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul Buffalo Milk</h4>
+            Price: ₹76.00<br />
+            Quantity: 1 L
+          </th>
+          <th>
+            <img
+              src="amul A2 gir cow milk.png"
+              alt="amul A2 gir cow milk"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul A2 Gir Cow Milk</h4>
+            Price: ₹ 70.00<br />
+            Quantity: 1 L
+          </th>
+        </tr>
+      </table>
+
+      <hr />
+      <h1>Amul Long Life Milk</h1>
+      <hr />
+      <table>
+        <tr>
+          <th>
+            <img
+              src="amul gold(L).png"
+              alt="amul gold long life milk"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;
+            <h4>Amul Gold milk</h4>
+            Price: ₹83.00<br />
+            Quantity: 1 L
+          </th>
+          <th>
+            <img
+              src="amul taaza(L).png"
+              alt="amul taaza long life milk"
+              width="100"
+              height="100"
+            />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <h4>Amul Taaza milk</h4>
+            Price: ₹ 74.00<br />
+            Quantity: 1 L
+          </th>
+          <th></th>
+        </tr>
+      </table>
+    </div>
+    <div id="footer"></div>
+    <script>
+      fetch("header.php")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

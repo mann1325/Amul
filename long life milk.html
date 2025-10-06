@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Milk Boxes</title>
+    <link rel="stylesheet" href="long life milk.css" />
+  <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+      #main {
+        background: linear-gradient(
+          180deg,
+          rgba(144, 213, 254, 1) 10px,
+          rgba(255, 255, 255, 1) 300px
+        );
+      }
+      #footer {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div id="main">  
+        <a href="index.php"> <img src="home.png" width="50" /></a>
+       <div class="container">
+     
+      <div class="milk-box">
+        <img src="amul gold(L).png" alt="amul gold(L) Milk" />
+       <h4>Amul Gold milk</h4>
+            Price: ₹83.00<br />
+            Quantity: 1 L
+      </div>
+      <div class="milk-box">
+        <img src="amul taaza(L).png" alt="amul taaza(L) Milk" />
+         <h4>Amul Taaza milk</h4>
+            Price: ₹ 74.00<br />
+            Quantity: 1 L
+      </div>
+      <div class="milk-box">
+        <img src="lactose free milk.png" alt="lactose free milk" />
+        <h4>Amul Lactose Free Milk</h4>
+        Price: ₹ 25.00<br />
+        Quantity: 250 ml
+      </div>
+      <div class="milk-box">
+        <img src="moti toned milk.png" alt="moti toned milk" />
+        <h4>amul Moti Toned Milk</h4>
+        Price: ₹ 33.00<br />
+        Quantity: 450 ml
+      </div>
+      <div class="milk-box">
+        <img src="calc+ milk.png" alt="calc+ milk" />
+          &nbsp;&nbsp;&nbsp;
+            <h4>Amul Calci+ Milk</h4>
+            Price: ₹104.00<br />
+            Quantity: 1 L
+      </div>
+      <div class="milk-box">
+        <img src="slim & trim milk.png" alt="slim & trim milk" />
+       <h4>Amul Slim 'n' Trim Milk</h4>
+            Price: ₹ 85.00<br />
+            Quantity: 1 L
+      </div>
+      <div class="milk-box">
+        <img src="camel milk.png" alt="camel milk" />
+       <h4>Amul Camel Milk</h4>
+            Price: ₹ 25.00<br />
+            Quantity: 200 ml
+      </div>
+      
+      </div>
+      </div>
+   
+    </div>
+     <div id="footer"></div>
+    <script>
+      fetch("header.php")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    
+  </body>
+</html>

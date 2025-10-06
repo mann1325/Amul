@@ -1,0 +1,172 @@
+table{
+    width: 700px;
+        height: 100px;
+        padding-left: 20%;
+        margin-left: 300px;
+        border-collapse: collapse;
+        background-color: #fff;
+        justify-content: center;
+        border-color: black;
+        border-style: solid;
+}
+tbody th{
+    border:1px solid black ;
+
+    }
+tbody td{
+    border: 1px solid black;
+}
+    button{
+        cursor: pointer;
+        width: 100px;
+            background-color: #f00;
+           
+            padding: 3px 0;
+    }
+    button a{
+        color: #fff;
+            border: none;
+            text-decoration: none;
+    }
+/* General Body & Layout Styles */
+body {
+    background-color: #f4f7f6; /* A soft, neutral background */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+#content {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* --- Form Container --- */
+.left-box {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+/* --- Headings & Labels --- */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2em;
+    padding-left: 0; /* Override original padding */
+}
+
+h2 {
+    color: #34495e;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+h4 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+}
+
+label {
+    font-weight: 500;
+}
+
+/* --- Input Fields, Textarea, and Select Dropdown --- */
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style for when a user clicks into a field */
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #3498db; /* Highlight with a nice blue */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+textarea {
+    resize: vertical; /* Allow user to resize vertically only */
+    min-height: 120px;
+}
+
+/* --- Radio Buttons and Checkboxes --- */
+.left-box input[type="radio"],
+.left-box input[type="checkbox"] {
+    margin-right: 6px;
+    transform: scale(1.2); /* Makes them slightly larger */
+    accent-color: #3498db; /* Modern way to color the dot/check */
+    cursor: pointer;
+}
+
+/* Improve spacing between options */
+.left-box label > input {
+    margin-left: 20px;
+}
+.left-box label > input:first-child {
+    margin-left: 0;
+}
+.left-box div > label {
+    display: inline-block; /* Helps with alignment and spacing */
+    margin-bottom: 10px;
+}
+
+/* --- Submit Button --- */
+.button {
+    display: block;
+    width: 100%;
+    background-color: #27ae60; /* A positive, modern green */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 30px;
+}
+
+.button:hover {
+    background-color: #2ecc71; /* A slightly lighter green on hover */
+    transform: translateY(-2px); /* Adds a subtle lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Right Box with Images --- */
+.right-box {
+    width: 300px;
+    background-color: transparent; /* Makes it blend with the page background */
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.right-box img {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Make images responsive to the container */
+    height: auto;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>press news</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      #main {
+        background: linear-gradient(
+          180deg,
+          rgba(144, 213, 254, 1) 10px,
+          rgba(255, 255, 255, 1) 300px
+        );
+      }
+      #footer {
+        margin-top: auto;
+      }
+    </style>
+    <link rel="stylesheet" href="press news.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <div>
+      <div id="main">
+        <a href="index.php"> <img src="home.png" width="50" /></a>
+
+        <h1>Press News</h1>
+        <div id="content">
+          <div class="left-box">
+            <table
+              style="width: 100%; font-size: 15px; border-collapse: collapse"
+              border="1"
+              cellspacing="0"
+              cellpadding="8"
+            >
+              <thead>
+                <tr style="background-color: #f0f0f0">
+                  <th width="5%">S.No</th>
+                  <th width="65%">Title</th>
+                  <th width="20%">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td align="center">1</td>
+                  <td>
+                    <a
+                      href="/files/pdf/Press_Release_-_Amul_launches_Fresh_Milk_in_the_United_States_of_America_-_March_2024_26032024.pdf"
+                      target="_blank"
+                    >
+                      Amul launches Fresh Milk in the United States of America -
+                      March 2024
+                    </a>
+                  </td>
+                  <td>23<sup>rd</sup> March 2024</td>
+                </tr>
+                <tr>
+                  <td align="center">2</td>
+                  <td>
+                    <a
+                      href="/files/pdf/GCMMF_open_branch_in_Kutch_-_September_2023_26032024.pdf"
+                      target="_blank"
+                    >
+                      GCMMF open branch in Kutch
+                    </a>
+                  </td>
+                  <td>16<sup>th</sup> September 2023</td>
+                </tr>
+                <tr>
+                  <td align="center">3</td>
+                  <td>
+                    <a
+                      href="/files/pdf/Press_Release_-_Asian_Games_2022_26032024.pdf"
+                      target="_blank"
+                    >
+                      Press Release - Asian Games 2022
+                    </a>
+                  </td>
+                  <td>04<sup>th</sup> September 2023</td>
+                </tr>
+                <tr>
+                  <td align="center">4</td>
+                  <td>
+                    <a
+                      href="/files/pdf/GCMMF_-_Won_11_Awards_at_exchange4media_health_and_wellness_awards_-_August_2023_26032024.pdf"
+                      target="_blank"
+                    >
+                      GCMMF - Won 11 Awards at exchange4media health and
+                      wellness awards
+                    </a>
+                  </td>
+                  <td>12<sup>th</sup> August 2023</td>
+                </tr>
+                <tr>
+                  <td align="center">5</td>
+                  <td>
+                    <a
+                      href="/files/pdf/GCMMF_sales_Turnover_-_2022-23_-_01_04_2023_-_English_26032024.pdf"
+                      target="_blank"
+                    >
+                      GCMMF sales Turnover - 2022-23
+                    </a>
+                  </td>
+                  <td>1<sup>st</sup> April 2023</td>
+                </tr>
+                <tr>
+                  <td align="center">6</td>
+                  <td>
+                    <a
+                      href="/files/pdf/Amul_Organic_-_Official_Partner_-_IPL_26032024.pdf"
+                      target="_blank"
+                    >
+                      Amul Organic - Official Partner - IPL
+                    </a>
+                  </td>
+                  <td>30<sup>th</sup> March 2023</td>
+                </tr>
+                <!-- Add more rows manually as needed -->
+              </tbody>
+            </table>
+          </div>
+          <div class="right-box">
+            <h3>Quick View</h3>
+            <ul>
+              <li><a href="about us.html">About Us</a></li>
+              <li>
+                <a href="https://www.amul.com/files/pdf/Branch_Wise-GSTN.pdf"
+                  >GST Nos</a
+                >
+              </li>
+              <li><a href="IMS policy.png">AmulFed Dairy-IMS Policy</a></li>
+
+              <li><a href="#">Locate Us</a></li>
+              <li><a href="career.html">Career</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("header.php")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

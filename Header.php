@@ -1,0 +1,372 @@
+<?php
+session_start();
+require_once 'db_connection.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amul Dairy Portal</title>
+    <style>
+     
+      
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .header-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(to bottom, #b3e0ff 0%, #e6f7ff 100%);
+        padding: 10px 30px;
+        border-bottom: 2px solid #333;
+        flex-wrap: wrap;
+      }
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .amul-logo {
+        height: 100px;
+      }
+      .amul-mascot {
+        height: 80px;
+      }
+      .header-center {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .header-center a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        margin: 0 6px;
+      }
+      .header-center a:hover {
+        text-decoration: underline;
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .social-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: background 0.2s;
+      }
+      .social-icon img {
+        width: 20px;
+        height: 20px;
+      }
+      .social-icon:hover {
+        background: #e0e0e0;
+      }
+      .amul-tagline {
+        height: 50px;
+        margin-left: 10px;
+        margin-bottom: 50px;
+      }
+      @media (max-width: 900px) {
+        .header-bar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 10px 10px;
+        }
+        .header-center {
+          margin: 10px 0;
+        }
+        .header-right {
+          margin-bottom: 10px;
+        }
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f8f8f8;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        height: 80px;
+      }
+
+      .logo {
+        height: 100px;
+        width: 100px;
+      }
+
+      body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.top-nav {
+    display: flex;
+    background-color: #ffcc00;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    position: relative;
+    padding: 14px 20px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    flex: 1;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+.brands {
+    background-color: #28a745;
+}
+
+.gcmmf {
+    background-color: #c8057a;
+}
+
+.fun {
+    background-color: #007bff;
+}
+
+.news {
+    background-color: #fd7e14;
+}
+
+.careers {
+    background-color: #ffc107;
+    color: black;
+}
+
+.india {
+    background-color: #007bff;
+}
+
+.b2b {
+    background-color: #dc3545;
+}
+
+
+
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 132px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-item:hover .dropdown {
+    display: block;
+}
+
+/* Search box */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+.search-box input[type="search"] {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 16px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+#brand{
+  background-color: #5ab583;
+  
+  
+ 
+}
+#gcmmf{
+ background-color: #f364ba;
+}
+
+#fun_amul{
+  background-color: #65d8ff;
+}
+
+#news{
+      background-color: #f1845c;
+}
+#career{
+    background-color: #f0d051;
+    
+}
+#amulForIndia {
+    background-color: #6cc4ff;
+}
+#b2b {
+    background-color: #f67768;
+}
+
+
+    </style>
+
+</head>
+<body>
+  
+    <div class="header-bar">
+      <div class="header-left">
+        <img src="amul-milk-photo.png" alt="Amul Logo" class="logo" />
+      </div>
+
+      <div class="header-right">
+        <img src="Amul-Girl-Mascot.jpg" alt="Amul Mascot" class="amul-mascot" />
+        <a href="https://www.facebook.com/amul.coop" class="social-icon"
+          ><img src="facebook.png" alt="Facebook"
+        /></a>
+        <a href="https://x.com/amul_coop" class="social-icon"
+          ><img src="X.png" alt="Twitter"
+        /></a>
+        <a href="https://www.instagram.com/amul_india/" class="social-icon"
+          ><img src="insta.png" alt="Instagram"
+        /></a>
+        <a href="https://www.linkedin.com/company/gcmmf/" class="social-icon"
+          ><img src="linkedin.png" alt="LinkedIn"
+        /></a>
+        <a href="https://www.youtube.com/user/amultv" class="social-icon"
+          ><img src="yt.png" alt="YouTube"
+        /></a>
+        <img src="amul logo.png" alt="Amul Tagline" class="amul-tagline" />
+      </div>
+    </div>
+        <div id="main">
+      <body>
+    <div class="top-nav">
+      <div class="menu-item brands">
+        Brands<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" style="color:#ffffff"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        <div class="dropdown">
+          <div id="brand">
+          <a href="butter.html" style="border: 0.5px dotted black;">Butter</a>
+          <a href="Milk section.html" style="border: 0.5px dotted black;">Milk</a>
+          
+          </div>
+        </div>
+      </div>
+      <div class="menu-item gcmmf">
+        GCMMF<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" style="color:#ffffff"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        <div class="dropdown">
+          <div id="gcmmf">
+          <a href="about us.html" style="border: 0.5px dotted black;">About Us</a>
+          <a href="https://www.amul.com/files/pdf/Branch_Wise-GSTN.pdf" style="border: 0.5px dotted black;">GST Nos</a>
+          <a href="IMS.html" style="border: 0.5px dotted black;">AmulFed Dairy-IMS Policy</a>
+        <a href="FAQ.html" style="border: 0.5px dotted black;">FAQ</a>
+        <a href="Event.html" style="border: 0.5px dotted black;">Events</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item fun">
+        Fun @ amul<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" style="color:#ffffff"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        <div class="dropdown">
+          <div id="fun_amul">
+          
+          <a href="amul topical story.html" style="border: 0.5px dotted black;">Topical Story</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item news">
+        Dairy News<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" style="color:#ffffff"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        <div class="dropdown">
+          <div id="news">
+          <a href="press news.html" style="border: 0.5px dotted black;">Press Release</a>
+         
+          </div>
+        </div>
+      </div>
+      <div class="menu-item careers">
+        Careers<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" style="color:#ffffff"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        <div class="dropdown">
+        <div id="career">
+          <a href="career.html" style="border: 0.5px dotted black;">Join Us</a>
+        </div>
+        </div>
+      </div>
+      <div class="menu-item india">
+        Amul for India<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" style="color:#ffffff"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        <div class="dropdown">
+        <div id="amulForIndia">
+          
+          <a href="relief trust.html" style="border: 0.5px dotted black;">Relief Trust</a>
+        </div>
+        </div>
+      </div>
+      <div class="menu-item b2b">
+        B2B<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" style="color:#ffffff"><path d="M480-360 280-560h400L480-360Z"/></svg>
+        <div class="dropdown">
+        <div id="b2b">
+          <a href="https://www.amul.com/files/pdf/vendor_registration_form_plastic_waste_management_2023-24_11062023.pdf" style="border: 0.5px dotted black;">Vendor Registration Form-Plastic Waste Managemet</a>
+          <a href="https://shop.amul.in" style="border: 0.5px dotted black;">Shop Amul</a>
+          <a href="Amul Parlour.html" style="border: 0.5px dotted black;">Amul Parlour</a>
+          <a href="cattle feed.php" style="border: 0.5px dotted black;">Cattle Feed Distributor Application form</a>
+         <a  href="registration-form.docx" style="border: 0.5px dotted black;">THR Registration Form</a>
+
+        </div>
+        </div>
+      </div>
+      
+
+     
+      <div class="search-box">
+        <input type="search" placeholder="Searching for?" />
+        <button><span>&#128269;</span></button>
+      </div>
+    </div>
+    </div>
+   
+      </div>
+    </div>
+  </body>
+</html>
