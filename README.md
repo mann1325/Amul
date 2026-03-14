@@ -6,7 +6,7 @@ It demonstrates key concepts of **requirement analysis, wireframing, frontend UI
 
 The project follows incremental modules starting from **HTML skeletons**, **responsive layouts**, **form validation**, **dynamic JavaScript content**, and **secure PHP-MySQL integration**.
 
----
+
 
 ## 🎯 Objectives
 - Build a **student-friendly web portal** for managing events, profiles, and registrations.
