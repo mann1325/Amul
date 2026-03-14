@@ -11,7 +11,6 @@ The project follows incremental modules starting from **HTML skeletons**, **resp
 ## 🎯 Objectives
 - Build a **student-friendly web portal** for managing events, profiles, and registrations.
 - Practice **requirement gathering, wireframing, and semantic HTML5 structuring**.
-- Implement **responsive UI** using CSS Flexbox/Grid and media queries.
 - Apply **frontend validation** with JavaScript and **backend validation** with PHP.
 - Create a **secure login system** with sessions, cookies, and hashed passwords.
 - Develop a **dynamic database-driven portal** using MySQL and CRUD operations.
